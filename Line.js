@@ -22,6 +22,21 @@ class Line {
     }
 }
 
+class Triangle {
+    constructor(diemA, diemB, diemC) {
+        this.diemA = diemA;
+        this.diemB = diemB;
+        this.diemC = diemC;
+    }
+
+    getChuVi() {
+        const ab = new Line(this.diemA, this.diemB);
+        const ac = new Line(this.diemA, this.diemC);
+        const bc = new Line(this.diemB, this.diemC);
+        return ab.getLength() + ac.getLength() + bc.getLength();
+    }
+}
+
 const A = new Point(0, 0);
 const B = new Point(1, 1);
 const AB = new Line(A, B);
