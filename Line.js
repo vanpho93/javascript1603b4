@@ -22,11 +22,26 @@ class Line {
     }
 }
 
+// class SanPham {
+//     static getAllProduct() {
+
+//     }
+// }
+
 class Triangle {
     constructor(diemA, diemB, diemC) {
         this.diemA = diemA;
         this.diemB = diemB;
         this.diemC = diemC;
+    }
+
+    static compare(t1, t2) {
+        const cv1 = t1.getChuVi();
+        const cv2 = t2.getChuVi();
+        let msg;
+        msg = cv1 > cv2 ? 'Tam giac 1 lon hon' : 'Tam giac 2 lon hon';
+        msg = cv1 === cv2 ?  'Hai tam giac co chu vi bang nhau': '';
+        return msg;
     }
 
     getChuVi() {
@@ -35,9 +50,22 @@ class Triangle {
         const bc = new Line(this.diemB, this.diemC);
         return ab.getLength() + ac.getLength() + bc.getLength();
     }
+
+    show() {
+        console.log(this.getChuVi());
+    }
 }
 
 const A = new Point(0, 0);
-const B = new Point(1, 1);
-const AB = new Line(A, B);
-console.log(AB.getLength());
+const B = new Point(1, 0);
+const C = new Point(0, 1);
+const D = new Point (100, 100)
+const ABC = new Triangle(A, B, C);
+const BAD = new Triangle(B, A, D);
+// console.log(ABC.square);
+
+const msg = Triangle.compare(BAD, ABC);
+console.log(msg);
+// ABC.show()
+
+// ABC.hi();
